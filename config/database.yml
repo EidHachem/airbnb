@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: eid
+  password: eid
+
+development:
+  <<: *default
+  database: airbnb_development
+
+test:
+  <<: *default
+  database: airbnb_test
+
+production:
+  <<: *default
+  database: airbnb_production
+  username: eid
+  password: <%= ENV['DATABASE_PASSWORD'] %>
