@@ -71,3 +71,5 @@ end
 gem "tailwindcss-rails", "~> 2.6"
 
 gem 'foreman'
+
+gem 'devise', '~> 4.9', '>= 4.9.3'
