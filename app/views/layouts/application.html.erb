@@ -12,7 +12,10 @@
   </head>
 
   <body>
+
   <%= render "header/nav" %>
+  <p class="notice"><%= notice %></p>
       <%= yield %>
+       <p class="alert"><%= alert %></p>
   </body>
 </html>
