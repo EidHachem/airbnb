@@ -6,7 +6,7 @@ module.exports = {
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/views/**/*.{erb,haml,html,slim}',
   ],
   theme: {
     colors: {
@@ -14,8 +14,8 @@ module.exports = {
       primary: {
         DEFAULT: '#ff5a5f',
         dark: '#ff385c',
-        // light: '#ffffff',
-      }
+        light: '#ff8185',
+      },
     },
     extend: {
       fontFamily: {
@@ -28,5 +28,5 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
-  ]
+  ],
 }
