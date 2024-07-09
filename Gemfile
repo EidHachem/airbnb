@@ -75,3 +75,5 @@ gem 'foreman'
 gem 'devise', '~> 4.9', '>= 4.9.3'
 
 gem 'faker'
+
+gem 'money-rails', '~> 1.12'
