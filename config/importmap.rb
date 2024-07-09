@@ -10,3 +10,4 @@ pin "swiper" # @11.0.5
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.js"
 pin "flatpickr" # @4.6.13
+pin "@fortawesome/fontawesome-free", to: "https://ga.jspm.io/npm:@fortawesome/fontawesome-free@6.1.1/js/all.js" # @6.5.2
