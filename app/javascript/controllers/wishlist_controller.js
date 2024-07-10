@@ -2,6 +2,12 @@ import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
   updateWishlistStatus() {
+
+    const isUserLoggedIn = this.element.dataset.userLoggedIn
+    if (isUserLoggedIn === 'false') {
+        document.querySelector(".js-login").click()
+      return
+    } 
     if (this.element.dataset.status === 'true') {
         this.element.classList.remove('fill-primary')
         this.element.classList.add("fill-none")
