@@ -1,21 +1,41 @@
 <div class="bg-white">
   <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-2 lg:max-w-7xl lg:px-8">
-
-    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-        <% @properties.each do |property| %>
+    <div
+      class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+    >
+      <% @properties.each do |property| %>
       <div class="group relative">
-        <div class="swiper aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
-  <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
-    <!-- Slides -->
-    <% property.images.each do |image| %>
-     <%= image_tag image, class:"swiper-slide h-full w-full object-cover object-center lg:h-full lg:w-full" %>
-    <% end %>
-    ...
-  </div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div>
+        <div class="relative">
+          <div
+            class="swiper aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200"
+          >
+            <div class="swiper-wrapper">
+              <% property.images.each do |image| %> <%= image_tag image,
+              class:"swiper-slide h-full w-full object-cover object-center
+              lg:h-full lg:w-full" %> <% end %> ...
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+          <div class="absolute right-4 top-4 z-10">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+              class="stroke-white stroke-2 w-6 h-6 hover:scale-110 cursor-pointer fill-none transition duration-500 ease-in-out"
+              style="overflow: visible"
+              data-controller="wishlist"
+              data-action="click->wishlist#updateWishlistStatus"
+              data-status="false"
+            >
+              <path
+                d="M16 28c7-4.73 14-10 14-17a6.98 6.98 0 0 0-7-7c-1.8 0-3.58.68-4.95 2.05L16 8.1l-2.05-2.05a6.98 6.98 0 0 0-9.9 0A6.98 6.98 0 0 0 2 11c0 7 7 12.27 14 17z"
+              ></path>
+            </svg>
+          </div>
+        </div>
         <div class="mt-2 flex justify-between">
           <div>
             <h3 class="text-base font-medium text-balck">
@@ -26,11 +46,17 @@
             </h3>
             <p class="text-sm text-gray-500">100 kilometers away</p>
             <p class="text-sm text-gray-500">Sep 22-27</p>
-            <p class="text-sm text-black"><span class="font-bold"><%= humanized_money_with_symbol(property.price) %></span> night</p>
+            <p class="text-sm text-black">
+              <span class="font-bold"
+                ><%= humanized_money_with_symbol(property.price) %></span
+              >
+              night
+            </p>
           </div>
-          <p class="text-sm text-gray-900"> 
+          <p class="text-sm text-gray-900">
             <i class="fa-sharp fa-solid fa-star text-black text-sm"></i>
-            <%= property.average_final_rating.round(2) %></p>
+            <%= property.average_final_rating.round(2) %>
+          </p>
         </div>
       </div>
       <% end %>
