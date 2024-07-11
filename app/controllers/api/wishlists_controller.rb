@@ -16,7 +16,9 @@ module Api
             wishlist.destroy
 
             respond_to do |format|
-            format.json { render json: { message: 'Wishlist deleted' }, status: :ok }
+                format.json do
+                    render json: { message: 'Wishlist deleted' }, status: :ok 
+                end
             end
         end
 
