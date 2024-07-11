@@ -14,6 +14,8 @@ class Property < ApplicationRecord
     has_many :reviews, dependent: :destroy
     has_many :wishlists, dependent: :destroy
     has_many :wishlisted_users, through: :wishlists, source: :user, dependent: :destroy
+    has_many :reservations, dependent: :destroy
+    has_many :reserved_users, through: :reservations, source: :user, dependent: :destroy
 
     def update_average_rating
         average_rating = reviews.average(:final_rating)
