@@ -25,4 +25,15 @@ class Property < ApplicationRecord
     def wishlisted_by?(user)
         return wishlisted_users.include?(user) unless user.nil?
     end
+
+    def available_dates
+        next_reservation = reservations.upcoming_reservations.first
+        current_reservation = reservations.current_reservations.first
+
+        start_date = current_reservation&.checkout_date || Date.tomorrow
+        end_date = next_reservation&.checkin_date || (Date.tomorrow + 5.days)
+
+        start_date.strftime('%e %b')..end_date.strftime('%e %b')
+    end
+
 end
